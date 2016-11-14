@@ -1,3 +1,3 @@
-# css-basics-lecture
+# bootstrap-grid-lecture
 
-http://cursor-education.github.io/css-basics-lecture
+https://cursor-education.github.io/bootstrap-grid-lecture/#/
