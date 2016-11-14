@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bootstrap Grid</title>
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/white.css">
+        <link rel="stylesheet" type="text/css" href="lib/css/zenburn.css">
+        <style type="text/css">
+          .abbr i {
+            color: orange;
+            text-decoration: none;
+            text-transform: none;
+            font-style: normal;
+          }
+          .w-1-2 {
+            width: 48%;
+            float: left;
+          }
+          .reveal .demo h1 {
+            font-size: 24px;
+          }
+          .reveal .demo h2 {
+            font-size: 22px;
+          }
+          .reveal .demo h3 {
+            font-size: 20px;
+          }
+          .reveal .demo h4 {
+            font-size: 18px;
+          }
+          .reveal .demo h5 {
+            font-size: 16px;
+          }
+          .reveal .demo h6 {
+            font-size: 14px;
+          }
+          .reveal .demo p {
+            font-size: 16px;
+          }
+          .reveal .demo * {
+            text-transform: none;
+            text-align: left;
+            font-size: 16px;
+          }
+          .reveal .demo pre {
+            margin: 0;
+            padding: 0;
+            box-shadow: none;
+          }
+          .reveal .demo ul, .reveal .demo ol, .reveal .demo dl {
+            margin: 0;
+            padding: 0;
+            padding-left: 20px;
+            float: left;
+          }
+          .reveal .demo ul ul, .reveal .demo ol ul,
+          .reveal .demo ul ol, .reveal .demo ol ol {
+            float: none;
+          }
+          .reveal .demo blockquote {
+            margin: 0;
+            padding: 0;
+            box-shadow: none;
+          }
+          .reveal .demo {
+            border: 2px solid grey;
+            padding: 2%;
+            width: 34%;
+            margin-top: 20px;
+            position: relative;
+          }
+          .reveal .demo:before {
+            position: absolute;
+            content: 'demo.html';
+            display: block;
+            background: #4250ff;
+            height: 28px;
+            width: 100px;
+            top: -28px;
+            left: 0;
+            line-height: 28px;
+            font-size: 16px;
+            color: white;
+          }
+          .reveal .demo a {
+            float: left;
+          }
+          .reveal .demo table {
+            float: left;
+          }
+          .reveal .demo tr, .reveal .demo td, .reveal .demo th {
+            border: none;
+          }
+          .reveal .table-demo {
+            width: 100%;
+            border: #ccc solid 1px;
+            border-collapse: collapse;
+          }
+          .reveal .table-demo caption {
+            text-align: right;
+            font-size: 12px;
+            font-style: italic;
+            padding-right: 10px;
+          }
+          .reveal .table-demo th,
+          .reveal .table-demo td {
+            padding: 5px;
+            border: 1px solid #ccc;
+          }
+          .reveal .demo form textarea {
+            float: left;
+            margin: 0;
+            padding: 0;
+            text-align: left;
+          }
+          .reveal p {
+            text-align: left;
+          }
+        </style>
+    </head>
+    <body>
+        <div class="reveal">
+          <div class="slides">
+            <section>
+              <h2>Bootstrap Grid</h2>
+            </section>
+            <section>
+              <h3>Basic html</h3>
+              <div data-markdown>
+                <script type="text/template">
+                  ```html
+                  <!DOCTYPE html>
+                  <html lang="en">
+                    ...
+                  </html>
+                  ```
+                </script>
+              </div>
+            </section>
+            <section>
+              <h3>Typography and links</h3>
+              <p>Bootstrap sets basic global display, typography, and link styles. Specifically, we:</p>
+              <ul>
+              <li>Remove margin on the body</li>
+              <li>Set background-color: white; on the body</li>
+              <li>Reset via Normalize</li>
+              </ul>
+            </section>
+            <section>
+              <h3>Default grid system</h3>
+              <p>
+                The default Bootstrap grid system utilizes 12 columns, making for a 940px wide container without responsive features enabled. With the responsive CSS file added, the grid adapts to be 724px and 1170px wide depending on your viewport. Below 767px viewports, the columns become fluid and stack vertically.
+              </p>
+              <img src="img/1.png" alt="" />
+            </section>
+            <section>
+              <h3>Basic grid HTML</h3>
+              <div data-markdown>
+                <script type="text/template">
+                  ```html
+                  <div class="row">
+                    <div class="span4">...</div>
+                    <div class="span8">...</div>
+                  </div>
+                  ```
+                </script>
+              </div>
+              <p>
+                Given this example, we have .span4 and .span8, making for 12 total columns and a complete row.
+              </p>
+            </section>
+            <section>
+              <h3>Offsetting columns</h3>
+              <img src="img/2.png" alt="" />
+              <div data-markdown>
+                <script type="text/template">
+                  ```html
+                  <div class="row">
+                    <div class="span4">...</div>
+                    <div class="span3 offset2">...</div>
+                  </div>
+                  ```
+                </script>
+              </div>
+            </section>
+            <section>
+              <h3>Nesting columns</h3>
+              <p>
+                To nest your content with the default grid, add a new .row and set of .span* columns within an existing .span* column. Nested rows should include a set of columns that add up to the number of columns of its parent.
+              </p>
+              <img src="img/3.png" alt="" />
+              <div data-markdown>
+                <script type="text/template">
+                  ```html
+                  <div class="row">
+                    <div class="span9">
+                      Level 1 column
+                      <div class="row">
+                        <div class="span6">Level 2</div>
+                        <div class="span3">Level 2</div>
+                      </div>
+                    </div>
+                  </div>
+                  ```
+                </script>
+              </div>
+            </section>
+            <section>
+              <h3>Fluid grid system</h3>
+              <p>
+                The fluid grid system uses percents instead of pixels for column widths. It has the same responsive capabilities as our fixed grid system, ensuring proper proportions for key screen resolutions and devices.
+              </p>
+              <img src="img/4.png" alt="" />
+            </section>
+            <section>
+              <h3>Basic fluid grid HTML</h3>
+              <p>
+                Make any row "fluid" by changing .row to .row-fluid. The column classes stay the exact same, making it easy to flip between fixed and fluid grids.
+              </p>
+              <div data-markdown>
+                <script type="text/template">
+                  ```html
+                  <div class="row-fluid">
+                    <div class="span4">...</div>
+                    <div class="span8">...</div>
+                  </div>
+                  ```
+                </script>
+              </div>
+            </section>
+            <section>
+              <h3>Fluid offsetting</h3>
+              <p>
+                Operates the same way as the fixed grid system offsetting: add .offset* to any column to offset by that many columns.
+              </p>
+              <img src="img/5.png" alt="" />
+              <div data-markdown>
+                <script type="text/template">
+                  ```html
+                  <div class="row-fluid">
+                    <div class="span4">...</div>
+                    <div class="span4 offset2">...</div>
+                  </div>
+                  ```
+                </script>
+              </div>
+            </section>
+            <section>
+              <h3>Fluid nesting</h3>
+              <p>
+                Fluid grids utilize nesting differently: each nested level of columns should add up to 12 columns. This is because the fluid grid uses percentages, not pixels, for setting widths.
+              </p>
+              <img src="img/6.png" alt="" />
+            </section>
+            <section>
+              <div data-markdown>
+                <script type="text/template">
+                  ```html
+                  <div class="row-fluid">
+                    <div class="span12">
+                      Fluid 12
+                      <div class="row-fluid">
+                        <div class="span6">
+                          Fluid 6
+                          <div class="row-fluid">
+                            <div class="span6">Fluid 6</div>
+                            <div class="span6">Fluid 6</div>
+                          </div>
+                        </div>
+                        <div class="span6">Fluid 6</div>
+                      </div>
+                    </div>
+                  </div>
+                  ```
+                </script>
+              </div>
+            </section>
+            <section>
+              <h3>Fixed layout</h3>
+              <p>
+                Provides a common fixed-width (and optionally responsive) layout with only class="container" required.
+              </p>
+              <div data-markdown>
+                <script type="text/template">
+                  ```html
+                  <body>
+                    <div class="container">
+                      ...
+                    </div>
+                  </body>
+                  ```
+                </script>
+              </div>
+            </section>
+            <section>
+              <h3>Fluid layout</h3>
+              <p>
+                Create a fluid, two-column page with class="container-fluid" —great for applications and docs.
+              </p>
+              <img src="img/8.png" alt="" />
+            </section>
+            <section>
+              <div data-markdown>
+                <script type="text/template">
+                  ```html
+                  <div class="container-fluid">
+                    <div class="row-fluid">
+                      <div class="span2">
+                        <!--Sidebar content-->
+                      </div>
+                      <div class="span10">
+                        <!--Body content-->
+                      </div>
+                    </div>
+                  </div>
+                  ```
+                </script>
+              </div>
+            </section>
+            <section>
+              <h3>Enabling responsive features</h3>
+              <p>
+                Turn on responsive CSS in your project by including the proper meta tag and additional stylesheet within the head of your document. If you've compiled Bootstrap from the Customize page, you need only include the meta tag.
+              </p>
+              <div data-markdown>
+                <script type="text/template">
+                  ```html
+                  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                  <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+                  ```
+                </script>
+              </div>
+              <p>
+                Bootstrap doesn't include responsive features by default at this time as not everything needs to be responsive. Instead of encouraging developers to remove this feature, we figure it best to enable it as needed.
+              </p>
+            </section>
+            <section>
+              <h3>About responsive Bootstrap</h3>
+              <p>Media queries allow for custom CSS based on a number of conditions—ratios, widths, display type, etc—but usually focuses around min-width and max-width.</p>
+              <ul>
+                <li>Modify the width of column in our grid</li>
+                <li>Stack elements instead of float wherever necessary</li>
+                <li>Resize headings and text to be more appropriate for devices</li>
+              </ul>
+
+              <p>Use media queries responsibly and only as a start to your mobile audiences. For larger projects, do consider dedicated code bases and not layers of media queries.</p>
+            </section>
+            <section>
+              <h3>Supported devices</h3>
+              <p>
+                Bootstrap supports a handful of media queries in a single file to help make your projects more appropriate on different devices and screen resolutions. Here's what's included:
+              </p>
+              <img src="img/9.png" alt="" />
+            </section>
+            <section>
+              <img src="img/11.png" alt="" />
+            </section>
+            <section>
+              <div data-markdown>
+                <script type="text/template">
+                  ```css
+                  /* Large desktop */
+                  @media (min-width: 1200px) { ... }
+
+                  /* Portrait tablet to landscape and desktop */
+                  @media (min-width: 768px) and (max-width: 979px) { ... }
+
+                  /* Landscape phone to portrait tablet */
+                  @media (max-width: 767px) { ... }
+
+                  /* Landscape phones and down */
+                  @media (max-width: 480px) { ... }
+                  ```
+                </script>
+              </div>
+            </section>
+            <section>
+              <h3>Responsive utility classes</h3>
+              <p>
+                For faster mobile-friendly development, use these utility classes for showing and hiding content by device. Below is a table of the available classes and their effect on a given media query layout (labeled by device).
+              </p>
+              <img src="img/10.png" alt="" />
+            </section>
+            <section>
+              <h3>Grid options</h3>
+              <p>
+                See how aspects of the Bootstrap grid system work across multiple devices with a handy table.
+              </p>
+              <img src="img/12.png" alt="" />
+            </section>
+            <section>
+              <h3>Column ordering</h3>
+              <p>
+                Easily change the order of our built-in grid columns with .col-md-push-* and .col-md-pull-* modifier classes.
+              </p>
+              <div data-markdown>
+                <script type="text/template">
+                  ```html
+                  <body>
+                    <div class="container">
+                      ...
+                    </div>
+                  </body>
+                  ```
+                </script>
+              </div>
+            </section>
+            <section>
+              Thank You. That's it.
+            </section>
+          </div>
+        </div>
+        <script src="js/reveal.js"></script>
+        <script type="text/javascript" src="lib/js/head.min.js"></script>
+        <script>
+            Reveal.initialize({
+              history: true,
+              slideNumber: true,
+              dependencies: [
+                { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                { src: 'plugin/notes/notes.js' }
+              ]
+            });
+        </script>
+    </body>
+</html>
